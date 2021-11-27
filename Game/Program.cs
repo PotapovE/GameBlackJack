@@ -64,24 +64,15 @@ namespace Game{
                 return result;
             }
 
-        public static void Game (int PlayerNum, int [] mixedCards, int iCard){      // Метод игры для трех игроков (хотелось бы зациклить)
+        public static void Game (int PlayerNum, int [] mixedCards, int iCard){      // Метод игры для трех игроков 
                 
-                var countCard1 = Turn(PlayerNum, mixedCards, iCard);
-                iCard = countCard1.count;
+                (int sum, int count ) countCard = (0, 0);
+                while (PlayerNum < 4){
+                countCard = Turn(PlayerNum, mixedCards, iCard);
+                iCard = countCard.count;
                 Print("Использовано карт в игре: " + iCard.ToString());
                 PlayerNum++;
-                // Console.Clear();
-                
-                var countCard2 = Turn(PlayerNum, mixedCards, iCard);
-                iCard = countCard2.count;
-                Print("Использовано карт в игре: " + iCard.ToString());
-                PlayerNum++;
-                // Console.Clear();
-
-                var countCard3 = Turn(PlayerNum, mixedCards, iCard);
-                iCard = countCard3.count;
-                Print("Использовано карт в игре: " + iCard.ToString());
-                // Console.Clear();
+                }
 
             }
 
